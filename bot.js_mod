@@ -1,0 +1,33 @@
+//csakegybot by Greg89
+
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const config = require("./config.json");
+
+//join 
+client.on("ready", () => {
+	console.log("Bot elindítva...");
+});
+
+client.on('ready', () => {
+  client.user.setGame('Brazzers.com')
+})
+
+//üzenetek 
+client.on("message", (message) => {
+	// bot prefix védelem
+	if (!message.content.startsWith(config.prefix) || message.author.bot) return;
+	//cucckombino
+	if (message.content.startsWith(config.prefix + "ping")) {
+	message.channel.send("Ne pingeljé mán more!");
+	} else
+	if (message.content.startsWith(config.prefix + "cheeki")) {
+	message.channel.send("BREEKI!");
+	}
+});
+
+
+
+
+//token helye 
+client.login(config.token);
